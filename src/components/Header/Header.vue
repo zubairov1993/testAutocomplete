@@ -6,8 +6,8 @@
 </template>
 
 <script>
-import Nav from './Nav'
-import Head from './Head'
+import Nav from '../Nav/Nav'
+import Head from '../Head/Head'
 
 export default {
   components: {
@@ -16,8 +16,3 @@ export default {
   }
 }
 </script>
-
-<!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped lang="scss">
-
-</style>

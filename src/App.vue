@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import Header from './components/Header.vue'
+import Header from './components/Header/Header'
 
 export default {
   name: 'App',
@@ -19,6 +19,6 @@ export default {
 *{
   margin: 0;
   padding: 0;
+  font-family: 'Open Sans', sans-serif;
 }
-
 </style>

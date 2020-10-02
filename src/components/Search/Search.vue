@@ -7,8 +7,14 @@
         autocomplete="off" 
         @focus="modal = true"
         class="search__input"
+        placeholder="Хочу найти..."        
       >
-      <i class="fas fa-search"></i>
+      <button>
+        <i class="fas fa-search" v-if="!modal"></i>
+      </button>
+      <button>
+        <i class="fas fa-times" v-if="modal" @click="close"></i>
+      </button>
     </div>
     <div v-if="filteredStates && modal">
       <ul class="search__list">
@@ -17,7 +23,8 @@
           v-bind:key="filteredState" 
           @click="setState(filteredState)"
           class="search__list_item"
-          ><a href="#">{{ filteredState }}</a></li>
+          placeholder="saw"
+          >{{ filteredState }}</li>
       </ul>
     </div>
   </div>
@@ -30,7 +37,15 @@ export default {
       state: '',
       modal: false,
       states: [
-        'Аккумуляторный инструмент', 'Kazan', 'Ufa', 'Piter', 'London'
+        'Аккумуляторный инструмент', 
+        'Бороздоделы (штроборезы)', 
+        'Гайковерты', 
+        'Гвоздезабиватели (степлеры)', 
+        'Граверы',
+        'Дрели', 
+        'Заклепочники', 
+        'Измерительный инструмент', 
+        'Лобзики'
       ],
       filteredStates: []
     }
@@ -51,6 +66,9 @@ export default {
     setState(state) {
       this.state = state;
       this.modal = false;
+    },
+    close() {
+      this.modal = false;
     }
   },
   watch: {
@@ -62,41 +80,6 @@ export default {
 </script>
 
 <style scoped lang="scss">
-.search{
-  width: 526px;
-  height: 40px;
-  border: 1px solid #ECEFF1;
-  border-radius: 4px;
-  &__block{
-    display: flex;
-    align-items: center;
-  }
-  &__input{
-    width: 500px;
-    height: 40px;
-    border: none;
-    outline: none;
-  }
-  &__list{
-    border: 1px solid #ECEFF1;
-    &_item{
-      list-style: none;
-      border-bottom: 1px solid #ECEFF1;
-      border-radius: 4px;
-      height: 40px;
-      display: flex;
-      align-items: center;
-      padding-left: 20px;
-    }
-    &_item:last-child{
-      border-bottom: none;
-    }
-  }
-  
-  i{
-    font-size: 20px;
-    color: #708598;
-    padding-right: 10px;
-  }
-}
+@import '../../assets/variables';
+@import './Search';
 </style>
